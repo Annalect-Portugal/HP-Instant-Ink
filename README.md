@@ -141,13 +141,6 @@ design/Instant-ink-brand-page-text.md
 - [ ] Include image mapping guide (which file = which placeholder)
 - [ ] Confirm their background color implementation
 - [ ] Note: They handle image URL replacement
-
-## 🎯 Next Steps
-
-1. **Export images from PSD** using specifications above
-2. **Place in** `design/assets/images/`
-3. **Test standalone version** locally
-4. **Review and adjust** if needed
 5. **Prepare Worten package** with images + HTML
 
 ---
