@@ -1,0 +1,29 @@
+// Typography
+@use 'variables' as *;
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-family: $font-primary;
+}
+
+h1 {
+  font-size: 52px;
+  font-family: $font-primary;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 16px;
+  font-family: $font-primary;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}

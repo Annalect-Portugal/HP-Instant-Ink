@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP Instant Ink - Poupe até 70% em tinteiros</title>
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #fff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-block;
+            background-color: #0096D6;
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0077AA;
+        }
+
+        .btn-black {
+            background-color: #000;
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-black:hover {
+            background-color: #333;
+        }
+
+        /* Diagonal Accent */
+        .diagonal-accent {
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-color: #0096D6;
+            transform: skewX(-10deg);
+            z-index: 0;
+        }
+
+        /* Header Section */
+        .header-section {
+            background-color: #fff;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            height: 100%;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 3;
+            flex-shrink: 0;
+        }
+
+        .header-logo {
+            width: 70px;
+            height: 70px;
+        }
+
+        .header-brand-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: #000;
+            white-space: nowrap;
+        }
+
+        .header-middle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .diagonal-accent-header {
+            position: absolute;
+            left: 15%;
+            top: -100px;
+            width: 160px;
+            height: 512px;
+            background-color: #024ad8;
+            transform: rotate(20deg);
+            z-index: 1;
+        }
+
+        .header-image-wrapper {
+            position: absolute;
+            left: calc(15% + 150px);
+            top: 0;
+            transform: skewX(-20deg);
+            width: 550px;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: skewX(20deg) scale(1.15);
+            transform-origin: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            z-index: 3;
+            flex-shrink: 0;
+            max-width: 240px;
+            text-align: right;
+        }
+
+        .header-right img {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+
+        .header-right span {
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        /* Hero Black Section */
+        .hero-black-section {
+            background-color: #000;
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        .hero-black-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-black-text {
+            flex: 1;
+        }
+
+        .hero-black-text h1 {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-black-text .subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-black-image {
+            flex: 1;
+        }
+
+        /* What Is Section */
+        .what-is-section {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+            position: relative;
+        }
+
+        .what-is-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .what-is-image {
+            flex: 1;
+        }
+
+        .what-is-text {
+            flex: 1;
+            position: relative;
+        }
+
+        .what-is-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0096D6;
+            line-height: 1.2;
+        }
+
+        .what-is-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .what-is-text .price-text {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 20px 0 30px;
+        }
+
+        .decorative-dots {
+            position: absolute;
+            right: -30px;
+            bottom: 20px;
+        }
+
+        .dot {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 10px 0;
+        }
+
+        .dot-pink {
+            background-color: #FF69B4;
+        }
+
+        .dot-blue {
+            background-color: #0096D6;
+        }
+
+        /* Never Run Out Section */
+        .never-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .never-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .never-text {
+            flex: 1;
+        }
+
+        .never-text h2 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .never-text .never-run {
+            color: #000;
+        }
+
+        .never-text .never-out {
+            background: linear-gradient(90deg, #9D4EDD 0%, #FF69B4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .never-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .never-image {
+            flex: 1;
+        }
+
+        /* Promo Section */
+        .promo-section {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .promo-text {
+            flex: 1;
+        }
+
+        .promo-text h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .promo-text p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .promo-image {
+            flex: 1;
+        }
+
+        .diagonal-accent-promo {
+            position: absolute;
+            left: 30%;
+            top: 0;
+            width: 120px;
+            height: 100%;
+            background-color: #0096D6;
+            transform: skewX(-10deg);
+            z-index: 0;
+        }
+
+        /* How It Works Section */
+        .how-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .how-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .how-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .how-item {
+            text-align: center;
+        }
+
+        .how-number {
+            font-size: 72px;
+            font-weight: 700;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .how-icon {
+            width: 80px;
+            margin: 0 auto 20px;
+        }
+
+        .how-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .how-item p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Plans Section */
+        .plans-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .plans-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .plans-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .plans-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .plans-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .plans-grid {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+            overflow-x: auto;
+        }
+
+        .plan-card {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            min-width: 180px;
+            flex: 1;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan-card.featured {
+            background-color: #0096D6;
+            color: #fff;
+            border-color: #0096D6;
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 150, 214, 0.3);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            color: #0096D6;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .plan-card.featured .plan-badge {
+            background-color: #004080;
+            color: #fff;
+        }
+
+        .plan-icon {
+            width: 50px;
+            margin: 0 auto 15px;
+        }
+
+        .plan-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .plan-pages {
+            font-size: 14px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .plan-price {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .plan-price .currency {
+            font-size: 18px;
+        }
+
+        .plan-card.featured .plan-name,
+        .plan-card.featured .plan-pages,
+        .plan-card.featured .plan-price {
+            color: #fff;
+        }
+
+        .plans-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-top: 20px;
+        }
+
+        .plans-cta-box {
+            background-color: #f8f8f8;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .plans-cta-box .ink-icon {
+            width: 40px;
+        }
+
+        .plans-cta-box p {
+            font-size: 14px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .plans-note {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-top: 30px;
+        }
+
+        /* Benefits Headline Section */
+        .benefits-headline-section {
+            padding: 60px 0 40px;
+            background-color: #fff;
+        }
+
+        .benefits-headline-section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.2;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 40px 0 80px;
+            background-color: #fff;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .benefit-image {
+            flex: 1;
+        }
+
+        .benefit-image img {
+            border-radius: 8px;
+        }
+
+        .benefit-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .benefit-text h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .benefit-text p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .faq-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #f8f8f8;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 25px 30px;
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .faq-item p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer-section {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            font-size: 13px;
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .how-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-section {
+                height: auto;
+                padding: 30px 0;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                align-items: center;
+                height: auto;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .header-middle {
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                width: 100%;
+                height: 200px;
+                margin: 0;
+            }
+
+            .diagonal-accent-header {
+                left: -20px;
+                width: 160px;
+                height: 400px;
+                top: -50px;
+            }
+
+            .header-image-wrapper {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%) skewX(-20deg);
+                width: 90%;
+                max-width: 500px;
+                height: 140px;
+            }
+
+            .header-right {
+                max-width: 100%;
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-black-content,
+            .what-is-content,
+            .never-content,
+            .promo-content {
+                flex-direction: column;
+            }
+
+            .hero-black-text h1 {
+                font-size: 36px;
+            }
+
+            .never-text h2 {
+                font-size: 48px;
+            }
+
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plans-wrapper {
+                flex-direction: column;
+            }
+
+            .plans-grid {
+                flex-direction: column;
+            }
+
+            .benefit-item {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-black-text h1 {
+                font-size: 28px;
+            }
+
+            .what-is-text h2,
+            .how-header h2,
+            .plans-header h2,
+            .benefits-headline-section h2,
+            .faq-header h2 {
+                font-size: 28px;
+            }
+
+            .never-text h2 {
+                font-size: 36px;
+            }
+
+            .promo-text h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="header-section">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <img src="design/assets/images/hero-hp-logo.png" alt="HP" class="header-logo">
+                    <span class="header-brand-text">Instant Ink</span>
+                </div>
+                <div class="header-middle">
+                    <div class="diagonal-accent-header"></div>
+                    <div class="header-image-wrapper">
+                        <img src="design/assets/images/hero-img.png" alt="Family">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <img src="design/assets/images/hero-crowd-icon.png" alt="Subscribers">
+                    <span>Junte-se a mais de 11 milhões de subscritores</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Black Section - Poupe até 70% -->
+    <section class="hero-black-section">
+        <div class="container">
+            <div class="hero-black-content">
+                <div class="hero-black-text">
+                    <h1>Poupe até 70% em tinteiros</h1>
+                    <p class="subtitle">Imprima o que quiser por menos com a subscrição HP Instant Ink.</p>
+                    <a href="https://www.hp.com/pt-pt/printers/instant-ink.html" class="btn-black">Subscreva Agora</a>
+                </div>
+                <div class="hero-black-image">
+                    <img src="design/assets/images/save-img.png" alt="Save up to 70%">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Is Section -->
+    <section class="what-is-section">
+        <div class="container">
+            <div class="what-is-content">
+                <div class="what-is-image">
+                    <img src="design/assets/images/save-img.png" alt="What is Instant Ink">
+                </div>
+                <div class="what-is-text">
+                    <h2>O que é o Instant Ink?</h2>
+                    <p>O HP Instant Ink é um serviço de subscrição de tinteiros sem complicações, que entrega automaticamente tinteiros à sua porta mesmo antes de a tinta acabar.</p>
+                    <p class="price-text">Subscreva a partir de 1,79€ / mês.</p>
+                    <a href="https://www.hp.com/pt-pt/printers/instant-ink.html" class="btn-primary">Saiba Mais</a>
+                    <div class="decorative-dots">
+                        <div class="dot dot-pink"></div>
+                        <div class="dot dot-blue"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Never Run Out Section -->
+    <section class="never-section">
+        <div class="container">
+            <div class="never-content">
+                <div class="never-text">
+                    <h2>
+                        <span class="never-run">Never</span><span class="never-out">Run</span> out
+                    </h2>
+                    <p>A tinta é enviada automaticamente antes de acabar. Nunca mais fique sem imprimir quando mais precisa.</p>
+                </div>
+                <div class="never-image">
+                    <img src="design/assets/images/about-img.png" alt="Never run out">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Section - 3 Months Free -->
+    <section class="promo-section">
+        <div class="container">
+            <div class="diagonal-accent-promo"></div>
+            <div class="promo-content">
+                <div class="promo-text">
+                    <h2>3 meses de Instant Ink grátis*</h2>
+                    <p>Subscreva o HP Instant Ink e obtenha os seus primeiros 3 meses de subscrição gratuitamente.</p>
+                    <a href="https://www.hp.com/pt-pt/printers/instant-ink.html" class="btn-primary">Aproveite Agora</a>
+                </div>
+                <div class="promo-image">
+                    <img src="design/assets/images/free-months-img.png" alt="3 months free">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-section">
+        <div class="container">
+            <div class="how-header">
+                <h2>Como funciona</h2>
+            </div>
+            <div class="how-grid">
+                <div class="how-item">
+                    <div class="how-number">1.</div>
+                    <img src="design/assets/images/icon-step-1.png" alt="Step 1" class="how-icon">
+                    <h3>Subscreva e escolha</h3>
+                    <p>Escolha o plano que melhor se adapta às suas necessidades. Inscreva-se e comece a poupar imediatamente.</p>
+                </div>
+                <div class="how-item">
+                    <div class="how-number">2.</div>
+                    <img src="design/assets/images/icon-step-2.png" alt="Step 2" class="how-icon">
+                    <h3>Nunca fique sem tinta</h3>
+                    <p>A sua impressora monitoriza os níveis de tinta e envia-nos os dados. Os tinteiros são enviados automaticamente.</p>
+                </div>
+                <div class="how-item">
+                    <div class="how-number">3.</div>
+                    <img src="design/assets/images/icon-step-3.png" alt="Step 3" class="how-icon">
+                    <h3>Devolução dos tinteiros usados</h3>
+                    <p>Recicle facilmente os seus tinteiros vazios com o envelope pré-pago incluído.</p>
+                </div>
+                <div class="how-item">
+                    <div class="how-number">4.</div>
+                    <img src="design/assets/images/icon-step-4.png" alt="Step 4" class="how-icon">
+                    <h3>Altere ou cancele quando quiser</h3>
+                    <p>Mude o seu plano a qualquer momento ou cancele sem compromissos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans-section">
+        <div class="container">
+            <div class="plans-header">
+                <h2>Escolha um plano e comece agora</h2>
+            </div>
+            <div class="plans-wrapper">
+                <div class="plans-grid">
+                    <div class="plan-card">
+                        <div class="plan-badge">Recomendado</div>
+                        <img src="design/assets/images/icon-ink-drop.png" alt="Light" class="plan-icon">
+                        <div class="plan-name">Light</div>
+                        <div class="plan-pages">Até 10 páginas</div>
+                        <div class="plan-price"><span class="currency">€</span>1,79</div>
+                    </div>
+                    <div class="plan-card">
+                        <img src="design/assets/images/icon-ink-drop.png" alt="Ocasional" class="plan-icon">
+                        <div class="plan-name">Ocasional</div>
+                        <div class="plan-pages">Até 50 páginas</div>
+                        <div class="plan-price"><span class="currency">€</span>5,49</div>
+                    </div>
+                    <div class="plan-card">
+                        <img src="design/assets/images/icon-ink-drop.png" alt="Moderado" class="plan-icon">
+                        <div class="plan-name">Moderado</div>
+                        <div class="plan-pages">Até 100 páginas</div>
+                        <div class="plan-price"><span class="currency">€</span>7,99</div>
+                    </div>
+                    <div class="plan-card featured">
+                        <div class="plan-badge">Recomendado</div>
+                        <img src="design/assets/images/icon-ink-drop.png" alt="Frequente" class="plan-icon">
+                        <div class="plan-name">Frequente</div>
+                        <div class="plan-pages">Até 300 páginas</div>
+                        <div class="plan-price"><span class="currency">€</span>15,99</div>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-badge">Recomendações para empresas</div>
+                        <img src="design/assets/images/icon-ink-drop.png" alt="Empresarial" class="plan-icon">
+                        <div class="plan-name">Empresarial</div>
+                        <div class="plan-pages">Até 700 páginas</div>
+                        <div class="plan-price"><span class="currency">€</span>31,99</div>
+                    </div>
+                </div>
+                <div class="plans-cta">
+                    <div class="plans-cta-box">
+                        <img src="design/assets/images/icon-ink-drop.png" alt="Subscribe" class="ink-icon">
+                        <p>Subscreva agora a partir de 1,79€ / mês</p>
+                        <a href="https://www.hp.com/pt-pt/printers/instant-ink.html" class="btn-primary">Subscrever</a>
+                    </div>
+                </div>
+            </div>
+            <p class="plans-note">Pague 1,50€ por cada 10-15 páginas extra no seu plano</p>
+        </div>
+    </section>
+
+    <!-- Benefits Headline Section -->
+    <section class="benefits-headline-section">
+        <div class="container">
+            <h2>A impressão sem complicações, comece com o HP Instant Ink.</h2>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-image">
+                        <img src="design/assets/images/never-run-out-img.png" alt="Nunca fique sem tinta">
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Nunca fique sem tinta*</h3>
+                        <p>O envio automático dos tinteiros garante que nunca fica sem tinta, mantendo a sua impressora sempre pronta.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-image">
+                        <img src="design/assets/images/subsciption-img.png" alt="Altere ou cancele">
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Altere ou cancele a sua subscrição a qualquer altura*</h3>
+                        <p>Ajuste o seu plano conforme as suas necessidades ou cancele a qualquer momento, sem custos adicionais.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-image">
+                        <img src="design/assets/images/price-img.png" alt="Qualquer impressão">
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Qualquer impressão pelo mesmo preço*</h3>
+                        <p>Imprima fotos, documentos ou gráficos coloridos. Cada página custa o mesmo, independentemente do que imprime.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-image">
+                        <img src="design/assets/images/recicle-img.png" alt="Reciclagem">
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Reciclagem incluída*</h3>
+                        <p>Mais de 982 milhões de tinteiros HP Originais foram reciclados através do programa HP Planet Partners.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <h2>Perguntas Frequentes sobre o Instant Ink</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Como funciona o HP Instant Ink?</h3>
+                    <p>O HP Instant Ink é um serviço de reposição de tinta baseado no número de páginas que imprime. Escolha um plano com base no número de páginas que imprime por mês. A impressora compatível monitoriza os níveis de tinta e encomenda automaticamente tinteiros de substituição que são entregues à sua porta antes de ficar sem tinta. O serviço incluí tinteiros, entrega e reciclagem pré-paga.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>O serviço permite realmente poupar?</h3>
+                    <p>Sim - até 70% com tinta. Ao aderir ao serviço HP Instant Ink, pode economizar até 50% em tinta em relação às opções de reposição tradicionais. A maioria dos clientes HP Instant Ink poupa até 70%, dependendo de como imprimem. Para planos de maior volume, as poupanças tornam-se ainda mais substanciais.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Com que rapidez recebo os tinteiros?</h3>
+                    <p>Assim que se inscrever, os tinteiros serão enviados dentro de 7 a 10 dias úteis. Quando os níveis de tinta da sua impressora ficarem baixos, novos tinteiros são automaticamente enviados, para que os receba antes de a tinta acabar completamente. Os tempos de entrega variam de acordo com a localização.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Vale a pena o serviço HP Instant Ink?</h3>
+                    <p>Sim - especialmente para utilizadores que imprimem regularmente. Para além da poupança substancial nos custos de tinta, obterá a conveniência de nunca ficar sem tinta quando mais precisa. O serviço é particularmente valioso para trabalho remoto, escritórios domésticos e qualquer pessoa que dependa de impressão consistente. A flexibilidade de alterar ou cancelar planos sem compromissos acrescenta valor significativo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Mais Sobre a HP</h4>
+                    <ul>
+                        <li><a href="#">Informações da empresa</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Investidores</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Relações com investidores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Formas de Comprar</h4>
+                    <ul>
+                        <li><a href="#">Loja HP Online</a></li>
+                        <li><a href="#">Encontrar revendedores</a></li>
+                        <li><a href="#">Compras empresariais</a></li>
+                        <li><a href="#">Compras para educação</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Suporte e Drivers</h4>
+                    <ul>
+                        <li><a href="#">Centro de Suporte HP</a></li>
+                        <li><a href="#">Suporte de produtos</a></li>
+                        <li><a href="#">Downloads de software</a></li>
+                        <li><a href="#">Garantia e serviços</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Siga a HP</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 HP Development Company, L.P. As informações aqui contidas estão sujeitas a alterações sem aviso prévio.</p>
+                <p>Avisos Legais | Privacidade | Gerir Preferências de Cookies | Acessibilidade</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

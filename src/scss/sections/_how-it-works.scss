@@ -1,0 +1,61 @@
+// How It Works Section
+@use '../base/variables' as *;
+
+.how-section {
+  padding: 20px 0;
+  background-color: $white;
+}
+
+.how-header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.how-item {
+  text-align: left;
+  padding: 10px 20px;
+  background-color: $bg-gray;
+
+  .how-number {
+    text-align: left;
+    font-size: 32px;
+    font-weight: 700;
+    color: $black;
+    margin-bottom: 20px;
+  }
+
+  img {
+    width: auto;
+    height: 70px;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    sup{
+      font-size: 16px;
+      vertical-align: super;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.2;
+    color: $black;
+  }
+}

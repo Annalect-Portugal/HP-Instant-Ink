@@ -1,0 +1,46 @@
+// Promo Section
+@use '../base/variables' as *;
+
+.promo-section {
+  padding: 30px 0;
+  background-color: $white;
+}
+
+.promo-content {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .diagonal-stripe {
+    position: absolute;
+    width: 65px;
+    height: 100%;
+    background-color: $dark-blue;
+    transform: skew(160deg);
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%) skew(160deg);
+  }
+}
+
+.promo-text {
+  flex: 1;
+  padding-right: 75px;
+  h2 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 25px;
+    line-height: 1.2;
+    margin-bottom: 0;
+    font-weight: 400;
+  }
+}
+
+.promo-image {
+  flex: 1;
+}

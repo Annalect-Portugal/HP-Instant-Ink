@@ -1,0 +1,51 @@
+// HP Simplified Fonts
+
+@font-face {
+  font-family: 'HP Simplified';
+  src: url('../assets/fonts/HpSimplifiedLight.eot');
+  src: url('../assets/fonts/HpSimplifiedLight.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/HpSimplifiedLight.woff') format('woff'),
+       url('../assets/fonts/HpSimplifiedLight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HP Simplified';
+  src: url('../assets/fonts/HPSimplifiedLightItalic.eot');
+  src: url('../assets/fonts/HPSimplifiedLightItalic.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/HPSimplifiedLightItalic.woff') format('woff'),
+       url('../assets/fonts/HPSimplifiedLightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HP Simplified';
+  src: url('../assets/fonts/HPSimplifiedRegular.eot');
+  src: url('../assets/fonts/HPSimplifiedRegular.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/HPSimplifiedRegular.woff') format('woff'),
+       url('../assets/fonts/HPSimplifiedRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HP Simplified';
+  src: url('../assets/fonts/HPSimplifiedBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forma DJRUI';
+  src: url('../assets/fonts/FormaDJRUI.woff2') format('woff2'),
+       url('../assets/fonts/FormaDJRUI.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

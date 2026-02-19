@@ -1,0 +1,33 @@
+// Legal Section
+@use '../base/variables' as *;
+
+.legal-section {
+  padding: 0;
+}
+
+.legal-header {
+  position: relative;
+  h2 {
+    font-size: 22px;
+    text-align: left;
+    margin-top: 20px;
+  }
+}
+
+.legal-content {
+  display: flex;
+  ol{
+    list-style: decimal;
+    padding-left: 15px;
+    li {
+      font-size: 12px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+  }
+  p{
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+}

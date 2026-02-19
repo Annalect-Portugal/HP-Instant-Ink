@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP Instant Ink - Hero Section</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #fff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            height: 100%;
+        }
+
+        .hero-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 3;
+            flex-shrink: 0;
+        }
+
+        .hero-logo {
+            width: 70px;
+            height: 70px;
+        }
+
+        .hero-brand-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: #000;
+            white-space: nowrap;
+        }
+
+        .hero-middle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .diagonal-stripe {
+            position: absolute;
+            left: 15%;
+            top: -100px;
+            width: 160px;
+            height: 512px;
+            background-color: #024ad8;
+            transform: rotate(20deg);
+            z-index: 1;
+        }
+
+        .hero-image-wrapper {
+            position: absolute;
+            left: calc(15% + 150px);
+            top: 0;
+            transform: skewX(-20deg);
+            width: 550px;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: skewX(20deg) scale(1.15);
+            transform-origin: center;
+        }
+
+        .hero-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            z-index: 3;
+            flex-shrink: 0;
+            max-width: 240px;
+            text-align: right;
+        }
+
+        .hero-right img {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+
+        .hero-right span {
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                padding: 30px 0;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                align-items: center;
+                height: auto;
+            }
+
+            .hero-left {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-middle {
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                width: 100%;
+                height: 200px;
+                margin: 0;
+            }
+
+            .diagonal-stripe {
+                left: -20px;
+                width: 160px;
+                height: 400px;
+                top: -50px;
+            }
+
+            .hero-image-wrapper {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%) skewX(-20deg);
+                width: 90%;
+                max-width: 500px;
+                height: 140px;
+            }
+
+            .hero-right {
+                max-width: 100%;
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <img src="design/assets/images/hero-hp-logo.png" alt="HP" class="hero-logo">
+                    <span class="hero-brand-text">Instant Ink</span>
+                </div>
+                <div class="hero-middle">
+                    <div class="diagonal-stripe"></div>
+                    
+                </div>
+				<div class="hero-image-wrapper">
+					<img src="design/assets/images/hero-img.png" alt="Family">
+				</div>
+                <div class="hero-right">
+                    <img src="design/assets/images/hero-crowd-icon.png" alt="Subscribers">
+                    <span>Junte-se a mais de 11 milhões de subscritores</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

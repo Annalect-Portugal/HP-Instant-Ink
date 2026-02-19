@@ -1,0 +1,52 @@
+// Benefits Section
+@use '../base/variables' as *;
+
+.benefits-headline-section {
+  padding: 30px;
+  text-align: center;
+
+  h2 {
+    font-size: 50px;
+    margin: 0;
+  }
+}
+
+.benefits-section {
+  margin: 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.benefit-item {
+  background-color: $bg-gray;
+  display: flex;
+
+  .benefit-text {
+    padding: 20px 0 0 20px;
+    margin-right:-25px;
+    flex: 1;
+    z-index: 2;
+
+    h3 {
+      font-size: 32px;
+      sup{
+        font-size: 16px;
+        vertical-align: super;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+  }
+  img {
+    height: 275px;
+    width: auto;
+    flex-shrink: 0;
+  }
+}

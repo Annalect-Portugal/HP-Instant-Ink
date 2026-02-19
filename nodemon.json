@@ -1,0 +1,7 @@
+{
+  "watch": ["src"],
+  "ext": "pug,scss,js,html",
+  "ignore": ["dist", ".parcel-cache", "node_modules"],
+  "exec": "parcel src/index.pug",
+  "delay": 2000
+}

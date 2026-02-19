@@ -1,0 +1,35 @@
+// Buttons
+@use '../base/variables' as *;
+
+.btn-primary {
+  display: inline-block;
+  background-color: $dark-blue;
+  color: $white;
+  padding: 5px 15px;
+  border-radius: 0px;
+  font-weight: 400;
+  font-size: 22px;
+  text-align: center;
+  transition: background-color $transition-speed ease;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0077AA;
+  }
+}
+
+.btn-black {
+  background-color: $black;
+  color: $white;
+  padding: 5px 15px;
+  border-radius: 0px;
+  font-weight: 400;
+  font-size: 22px;
+  display: inline-block;
+  transition: background-color $transition-speed ease;
+
+  &:hover {
+    background-color: $dark-blue;
+  }
+}

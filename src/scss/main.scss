@@ -1,0 +1,20 @@
+// Main SCSS file
+@use 'base/fonts';
+@use 'base/reset';
+@use 'base/variables';
+@use 'base/typography';
+
+@use 'components/buttons';
+@use 'components/container';
+
+@use 'sections/hero';
+@use 'sections/savings';
+@use 'sections/what-is';
+@use 'sections/promo';
+@use 'sections/how-it-works';
+@use 'sections/plans';
+@use 'sections/benefits';
+@use 'sections/faq';
+@use 'sections/legal';
+
+@use 'base/responsive';
