@@ -23,6 +23,10 @@
       font-size: 12px;
       line-height: 1.2;
       margin-bottom: 10px;
+      a{
+        color: $dark-blue;
+        text-decoration: underline;
+      }
     }
   }
   p{
