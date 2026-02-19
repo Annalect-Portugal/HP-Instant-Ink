@@ -119,10 +119,9 @@
   &.enlarged {
     margin-top:-35px;
     height: 425px;
-    background-color: $white;
     border-left: 1px solid;
-    border-color:$dark-blue;
-    background-color: $dark-blue;
+    border-color: $dark-blue;
+    background-color: $white;
   }
   &:first-of-type{ border-left: 1px solid $black; }
   &:nth-of-type(2),
