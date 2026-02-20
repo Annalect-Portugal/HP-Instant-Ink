@@ -1,0 +1,30 @@
+// Hero Black Section
+@use '../base/variables' as *;
+
+.cta-section {
+  background-color: $white;
+  position: relative;
+  color: $black;
+  text-align: center;
+  margin: 30px 0;
+  .cta-content {
+    padding: 30px 0;
+    background-color: $bg-gray;
+    color: $black;
+    h1 {
+      padding: 0;
+      margin: 0;
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    a.btn-black.cta-button {
+      text-align: center;
+      display: inline-block;
+      margin: 30px auto 0;
+    }
+  }
+}
