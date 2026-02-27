@@ -1,11 +1,11 @@
 // FAQ Section
 @use '../base/variables' as *;
 
-.faq-section {
+.hpi-faq-section {
   padding: 40px 0;
 }
 
-.faq-header {
+.hpi-faq-header {
   position: relative;
   h2 {
     font-size: 50px;
@@ -13,7 +13,7 @@
     text-align: left;
     z-index: 1;
   }
-  .blue-frame{
+  .hpi-blue-frame{
     position: absolute;
     right: 0;
     top: 0;
@@ -25,7 +25,7 @@
   }
 }
 
-.faq-item {
+.hpi-faq-item {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 2px solid $black;

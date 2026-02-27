@@ -1,85 +1,190 @@
-# HP Instant Ink - Landing Page Project
+# HP Instant Ink - Landing Page
 
-## 📋 Project Overview
+**Responsive landing page for HP Instant Ink subscription service**  
+Portuguese market | Worten integration ready | Mobile & Desktop optimized
 
-Two landing page versions for HP Instant Ink brand page implementation across retail partners.
+---
+
+## 🚀 Quick Start
+
+### Development
+```bash
+npm install
+npm start           # Start dev server with hot reload (localhost:1234)
+```
+
+### Production Builds
+```bash
+npm run build:standalone    # Standard version → dist-standalone/
+npm run build:worten       # Worten integration → worten-dist/
+```
+
+---
 
 ## 📁 Project Structure
 
 ```
 instant-ink-fev-2026/
-├── index.html              # Standalone version (works anywhere)
-├── worten-version.html     # Worten-specific compliant version
-├── design/
-│   ├── assets/
-│   │   └── images/         # Place all images here
-│   ├── Instant-ink-brand-page-text.md
-│   └── PSD files
-└── README.md
+├── src/
+│   ├── index.pug              # Standard template
+│   ├── index-worten.pug       # Worten template (with wrapper)
+│   ├── pug/sections/          # Page sections (hero, plans, etc.)
+│   ├── scss/
+│   │   ├── main.scss          # Standard styles
+│   │   ├── main-worten.scss   # Worten styles (scoped)
+│   │   ├── base/              # Typography, fonts, variables
+│   │   ├── components/        # Buttons, containers
+│   │   └── sections/          # Section-specific styles
+│   └── assets/
+│       ├── fonts/             # HP Simplified, Forma DJRUI
+│       └── images/            # 15 PNGs (logos, icons, photos)
+├── dist-standalone/           # Standard build output
+│   ├── index.html             # Complete HTML with inline CSS
+│   └── assets/                # Fonts + images
+├── worten-dist/               # Worten build output
+│   ├── hp-instant-ink-worten.html
+│   └── assets/
+├── build-standard.js          # Standard build script
+├── build-worten.js            # Worten build script
+└── package.json
 ```
 
-## 🖼️ Required Images
+---
 
-Place all images in: `design/assets/images/`
+## 🔨 Build Scripts
 
-### Image List & Specifications
+| Command | Output | Description |
+|---------|--------|-------------|
+| `npm start` | `localhost:1234` | Dev server with hot reload (Parcel) |
+| `npm run build` | `dist/` | Parcel production build (hashed assets) |
+| `npm run build:standalone` | `dist-standalone/` | Standard standalone (inline CSS, fixed assets) |
+| `npm run build:worten` | `worten-dist/` | Worten compliant version |
+| `npm run clean` | - | Clean all build directories |
+| `npm run clean:standalone` | - | Clean only dist-standalone |
+| `npm run clean:worten` | - | Clean only worten-dist |
 
-#### Section 1: Hero
-- `hero-hp-logo.png` - 213x213px
-- `hero-img.png` - 1418x600px
-- `hero-crowd-icon.png` - 223x149px
+---
 
-#### Section 2: Save
-- `save-img.png` - 1314x600px
+## 📦 Build Outputs
 
-#### Section 3: About
-- `about-img.png` - 1470x854px
+### Standard Standalone (`dist-standalone/`)
+- **File:** `index.html` (~34.6 KB)
+- **CSS:** Inline, 20,643 chars
+- **HTML Structure:** Complete with DOCTYPE, head, body
+- **Assets:** `./assets/fonts/`, `./assets/images/`
+- **Use Case:** General deployment, file:// compatible
 
-#### Section 4: 3 Months Free
-- `free-months-img.png` - 1191x600px
+### Worten Integration (`worten-dist/`)
+- **File:** `hp-instant-ink-worten.html` (~35.0 KB)
+- **CSS:** Inline, 20,862 chars (with transformations)
+- **Character Limit:** 35,019 / 200,000 (17.51%)
+- **Wrapper:** `.hpi-hp-instant-ink` (scoped styles)
+- **Transformations:**
+  - Z-index ≤ 1 (12 fixes)
+  - Background #fff → #f6f6f6
+  - Font paths: `./assets/fonts/`
+- **Use Case:** Worten website integration
 
-#### Section 5: How It Works
-- `icon-step-1.png` - 209x157px
-- `icon-step-2.png` - 245x148px
-- `icon-step-3.png` - 168x168px
-- `icon-step-4.png` - 183x183px
+---
 
-#### Section 6: Plans
-- `icon-ink-drop.png` - 107x154px
+## 🎨 Assets
 
-#### Section 7: Benefits
-- `never-run-out-img.png` - 858x749px
-- `subsciption-img.png` - 858x749px
-- `price-img.png` - 856x750px
-- `recicle-img.png` - 858x750px
+### Images (15 files)
+All images copied to build output during build process.
 
-**Total: 15 images**
+**Hero Section:**
+- `hero-hp-logo.png` (80x80px) - HP logo
+- `hero-img.png` (550x auto) - Family photo
+- `hero-crowd-icon.png` (90x auto) - Subscribers icon
 
-## 🔧 Version Details
+**Content Sections:**
+- `save-img.png` - Savings illustration
+- `about-img.png` - Product image
+- `free-months-img.png` - Promo image
+- `icon-step-1.png` to `icon-step-4.png` - How it works icons
+- `icon-ink-drop.png` - Subscription icon
+- `never-run-out-img.png` - Benefit image
+- `subscription-img.png` - Flexibility image
+- `price-img.png` - Pricing image
+- `recicle-img.png` - Recycling image
 
-### 1. Standalone Version (`index.html`)
-- Complete HTML document with `<head>` and `<body>`
-- Fully functional when opened locally
-- All CSS in `<style>` block
-- All JavaScript in `<script>` block
-- Fully responsive (mobile + desktop)
-- Images referenced from `design/assets/images/`
+### Fonts (12 files)
+- **HP Simplified:** Light (300), Regular (400), Bold (700) + Italic variants
+- **Forma DJRUI:** Regular (400) - Used for headings
 
-**To test locally:**
-1. Place images in `design/assets/images/`
-2. Open `index.html` in any browser
+---
 
-### 2. Worten Version (`worten-version.html`)
-Compliant with Worten's strict guidelines:
+## 🎯 Features
 
-✅ **Compliant Features:**
-- ✅ Under 200,000 characters
-- ✅ CSS and JS in blocks (inline)
-- ✅ No `<head>` or `<body>` tags
-- ✅ All classes prefixed with `.raw-`
-- ✅ No inline styles (only classes)
-- ✅ No z-index above 1
-- ✅ Background color compatible with #f6f6f6
+### Responsive Design
+- 5 breakpoints: 1440px, 1024px, 768px, 480px, 360px
+- Mobile-first approach
+- Touch-optimized (min 44x44px targets)
+- Flexible images and typography
+
+### Class Naming
+All classes prefixed with `.hpi-` (HP Instant Ink) for:
+- Namespace isolation
+- Worten integration compatibility
+- No style conflicts
+
+### Sections
+1. **Hero** - Brand + call to action
+2. **Savings** - Up to 70% savings message
+3. **What Is** - Service explanation + video
+4. **Promo** - 3 months free offer
+5. **How It Works** - 4-step process
+6. **CTA** - Purchase call to action
+7. **Plans** - 5 pricing tiers
+8. **Benefits** - 4 key advantages
+9. **FAQ** - Common questions
+10. **Legal** - Terms and disclaimers
+
+---
+
+## 📝 Documentation
+
+- **[WORTEN-BUILD.md](WORTEN-BUILD.md)** - Worten build process details
+- **[WORTEN-DEPLOYMENT.md](WORTEN-DEPLOYMENT.md)** - Deployment instructions
+- **[RESPONSIVE-GUIDE.md](RESPONSIVE-GUIDE.md)** - Responsive design system
+- **[DEV-README.md](DEV-README.md)** - Development workflow
+
+---
+
+## ⚙️ Technical Stack
+
+- **Templates:** Pug 3.0.2
+- **Styles:** Sass 1.70.0
+- **Build:** Node.js custom scripts
+- **Dev Server:** Parcel 2.12.0
+- **Package Manager:** npm
+
+---
+
+## 🔍 Build Statistics
+
+### Standard Standalone
+```
+CSS: 20,643 chars
+HTML: 13,710 chars
+Total: 34,598 chars
+Assets: 27 files (15 images + 12 fonts)
+```
+
+### Worten Version
+```
+CSS: 20,862 chars (with transformations)
+HTML: 13,782 chars (with wrapper)
+Total: 35,046 chars (17.52% of 200K limit)
+Remaining: 164,954 chars
+Assets: 27 files (15 images + 12 fonts)
+```
+
+---
+
+## 📄 License
+
+© 2026 HP Inc. All rights reserved.
 - ✅ CSS at the beginning before HTML
 - ✅ Wrapped in container div
 

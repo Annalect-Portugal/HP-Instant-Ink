@@ -1,8 +1,22 @@
 // Container
 @use '../base/variables' as *;
 
-.container {
+.hpi-container {
   max-width: $container-max-width;
   margin: 0 auto;
   padding: 0 $container-padding;
+  width: 100%;
+  
+  // Responsive padding for different screen sizes
+  @media (max-width: $breakpoint-tablet) {
+    padding: 0 20px;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: 0 16px;
+  }
+  
+  @media (max-width: $breakpoint-mobile-small) {
+    padding: 0 12px;
+  }
 }

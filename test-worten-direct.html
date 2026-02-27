@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste Direto - HP Instant Ink Worten</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f6f6f6;
+      font-family: Arial, sans-serif;
+    }
+    .test-container {
+      max-width: 1312px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .test-info {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .test-info h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+    .test-info code {
+      background: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #e83e8c;
+    }
+    .test-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .test-btn {
+      background: #024ad8;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .test-btn:hover {
+      background: #0239a8;
+    }
+    .test-btn.reload {
+      background: #e30613;
+    }
+    .test-btn.reload:hover {
+      background: #b30510;
+    }
+    #timestamp {
+      font-size: 13px;
+      color: #666;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <div class="test-info">
+      <h2>🧪 Teste Direto - Sem Iframe</h2>
+      <p>Este ficheiro carrega diretamente o HTML do Worten <strong>sem iframe</strong> para verificar:</p>
+      <ul>
+        <li>✅ As regras CSS <code>!important</code> estão presentes</li>
+        <li>✅ O servidor está a servir o ficheiro correto</li>
+        <li>✅ Não há problemas de cache do iframe</li>
+        <li>✅ As dimensões CSS estão corretas (mesmo sem imagens)</li>
+      </ul>
+      <p><strong>Ficheiro:</strong> <code>worten-dist/hp-instant-ink-worten.html</code></p>
+      <p style="background: #d1ecf1; border: 1px solid #bee5eb; padding: 10px; border-radius: 4px; color: #0c5460; margin-top: 10px;">
+        <strong>ℹ️ Nota:</strong> Imagens carregadas automaticamente com paths corrigidos.
+        Se algumas imagens não aparecerem, verifique se existem em <code>worten-dist/assets/images/</code>
+      </p>
+      <p id="file-info"></p>
+    </div>
+    
+    <div class="test-buttons">
+      <button class="test-btn reload" onclick="reloadContent()">🔄 Reload Content</button>
+      <button class="test-btn" onclick="checkCSS()">🔍 Verificar CSS !important</button>
+      <span id="timestamp"></span>
+    </div>
+    
+    <div id="content-container">
+      <p style="text-align: center; color: #999; padding: 40px;">A carregar conteúdo...</p>
+    </div>
+  </div>
+
+  <script>
+    async function loadContent() {
+      const container = document.getElementById('content-container');
+      const timestamp = new Date().getTime();
+      
+      try {
+        const response = await fetch(`./worten-dist/hp-instant-ink-worten.html?t=${timestamp}`);
+        const html = await response.text();
+        
+        // Extrai apenas o body content
+        const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+        let content = bodyMatch ? bodyMatch[1] : html;
+        
+        // Corrige paths das imagens para apontar para worten-dist/assets/images/
+        content = content.replace(/src="\.\/assets\/images\//g, 'src="./worten-dist/assets/images/');
+        content = content.replace(/src='\.\/assets\/images\//g, "src='./worten-dist/assets/images/");
+        
+        container.innerHTML = content;
+        
+        // Atualiza timestamp
+        const now = new Date();
+        document.getElementById('timestamp').textContent = `Carregado às ${now.toLocaleTimeString('pt-PT')}`;
+        
+        // Info do ficheiro
+        const size = new Blob([html]).size;
+        document.getElementById('file-info').innerHTML = 
+          `<strong>Tamanho:</strong> ${size.toLocaleString()} bytes | <strong>Timestamp:</strong> ${timestamp}`;
+        
+        console.log('✅ Conteúdo carregado com sucesso');
+        console.log('📊 Tamanho:', size, 'bytes');
+        console.log('🕒 Cache-busting timestamp:', timestamp);
+        
+        // Verifica CSS
+        checkCSSInContent(html);
+      } catch (error) {
+        container.innerHTML = `
+          <div style="background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 15px; border-radius: 4px;">
+            <strong>❌ Erro ao carregar:</strong> ${error.message}
+          </div>
+        `;
+        console.error('❌ Erro:', error);
+      }
+    }
+    
+    function checkCSSInContent(html) {
+      const hasImportant = html.includes('width:auto!important;height:265px!important');
+      
+      if (hasImportant) {
+        console.log('%c✅ REGRAS !important ENCONTRADAS', 'color: green; font-weight: bold; font-size: 14px');
+        console.log('🎯 hpi-savings-image img: width:auto!important;height:265px!important');
+      } else {
+        console.log('%c❌ REGRAS !important NÃO ENCONTRADAS', 'color: red; font-weight: bold; font-size: 14px');
+      }
+    }
+    
+    function reloadContent() {
+      console.log('🔄 Reloading content...');
+      loadContent();
+    }
+    
+    async function checkCSS() {
+      try {
+        const response = await fetch('./worten-dist/hp-instant-ink-worten.html');
+        const html = await response.text();
+        
+        const checks = [
+          { name: 'hpi-savings-image img', pattern: 'width:auto!important;height:265px!important' },
+          { name: 'hpi-promo-image img', pattern: 'width:auto!important;height:275px!important' },
+          { name: 'hpi-what-is-image img', pattern: 'width:auto!important;height:320px!important' },
+          { name: 'hpi-benefit-item img', pattern: 'width:auto!important;height:275px!important' }
+        ];
+        
+        console.log('%c🔍 VERIFICAÇÃO DE CSS', 'color: blue; font-weight: bold; font-size: 16px');
+        console.log('═'.repeat(50));
+        
+        checks.forEach(check => {
+          const found = html.includes(check.pattern);
+          const icon = found ? '✅' : '❌';
+          const color = found ? 'green' : 'red';
+          console.log(`%c${icon} ${check.name}`, `color: ${color}; font-weight: bold`);
+          if (found) {
+            console.log(`   ${check.pattern}`);
+          }
+        });
+        
+        console.log('═'.repeat(50));
+        
+        alert('Verificação completa! Veja a console para detalhes.');
+      } catch (error) {
+        console.error('❌ Erro:', error);
+        alert('Erro ao verificar CSS: ' + error.message);
+      }
+    }
+    
+    // Carrega ao iniciar a página
+    window.addEventListener('DOMContentLoaded', loadContent);
+  </script>
+</body>
+</html>

@@ -1,11 +1,11 @@
 // Buttons
 @use '../base/variables' as *;
 
-.btn-primary {
+.hpi-btn-primary {
   display: inline-block;
   background-color: $dark-blue;
   color: $white;
-  padding: 5px 15px;
+  padding: 10px 30px;
   border-radius: 0px;
   font-weight: 400;
   font-size: 22px;
@@ -13,23 +13,65 @@
   transition: background-color $transition-speed ease;
   border: none;
   cursor: pointer;
+  line-height: 1.5;
+  
+  // Better active state for touch devices
+  &:active {
+    background-color: #005580;
+    transform: scale(0.98);
+  }
 
   &:hover {
     background-color: #0077AA;
   }
+  
+  // Responsive sizing
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 18px;
+    padding: 14px 20px;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
-.btn-black {
+.hpi-btn-black {
   background-color: $black;
   color: $white;
-  padding: 5px 15px;
+  padding: 10px 30px;
   border-radius: 0px;
   font-weight: 400;
   font-size: 22px;
   display: inline-block;
   transition: background-color $transition-speed ease;
+  line-height: 1.5;
+  cursor: pointer;
+  border: none;
+  
+  // Better active state for touch devices
+  &:active {
+    background-color: #333;
+    transform: scale(0.98);
+  }
 
   &:hover {
     background-color: $dark-blue;
+  }
+  
+  // Responsive sizing
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 18px;
+    padding: 14px 20px;
+    width: 100%;
+    max-width: 100%;
   }
 }

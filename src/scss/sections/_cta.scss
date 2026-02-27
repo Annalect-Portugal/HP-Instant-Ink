@@ -1,13 +1,13 @@
 // Hero Black Section
 @use '../base/variables' as *;
 
-.cta-section {
+.hpi-cta-section {
   background-color: $white;
   position: relative;
   color: $black;
   text-align: center;
   margin: 30px 0;
-  .cta-content {
+  .hpi-cta-content {
     padding: 30px 0;
     background-color: $bg-gray;
     color: $black;
@@ -21,7 +21,7 @@
       width: 100%;
       text-align: center;
     }
-    a.btn-black.cta-button {
+    a.hpi-btn-black.hpi-cta-button {
       text-align: center;
       display: inline-block;
       margin: 30px auto 0;

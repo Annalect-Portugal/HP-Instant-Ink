@@ -1,11 +1,11 @@
 // Legal Section
 @use '../base/variables' as *;
 
-.legal-section {
+.hpi-legal-section {
   padding: 0;
 }
 
-.legal-header {
+.hpi-legal-header {
   position: relative;
   h2 {
     font-size: 22px;
@@ -14,7 +14,7 @@
   }
 }
 
-.legal-content {
+.hpi-legal-content {
   display: flex;
   ol{
     list-style: decimal;

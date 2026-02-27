@@ -1,0 +1,55 @@
+// Worten-specific SCSS - All global selectors wrapped in .hpi-hp-instant-ink
+
+// Import all modules first (SCSS @use rules must come first)
+@use 'base/fonts';
+@use 'base/variables' as *;
+@use 'base/typography';
+
+@use 'components/buttons';
+@use 'components/container';
+
+@use 'sections/hero';
+@use 'sections/savings';
+@use 'sections/what-is';
+@use 'sections/promo';
+@use 'sections/how-it-works';
+@use 'sections/cta';
+@use 'sections/plans';
+@use 'sections/benefits';
+@use 'sections/faq';
+@use 'sections/legal';
+
+@use 'base/responsive';
+
+// Worten-specific wrapper class (minimal overrides)
+.hpi-hp-instant-ink {
+  // NOTE: NO global * reset to preserve original design spacing
+  // The component styles already have proper margins/paddings
+  
+  // Base container properties
+  width: 100%;
+  
+  // Font family inheritance for all children
+  font-family: $font-primary;
+  
+  // Smooth scrolling for anchor links
+  scroll-behavior: smooth;
+
+  // Only minimal image optimization (preserve original sizing)
+  img {
+    display: block;
+  }
+
+  
+  // Only minimal link reset
+  a {
+    text-decoration: none;
+  }
+
+  // Worten-specific override for Plans section
+  // Adjust .hpi-recommended-plan to match Dev version height
+  .hpi-recommended-plan {
+    height: 60px !important;     // Reduce from 80px to 70px for Worten only
+    padding: 10px 20px !important; // Reduce padding for tighter spacing
+  }
+}

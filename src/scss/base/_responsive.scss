@@ -1,128 +1,844 @@
-// Responsive Styles
+// Responsive Styles - Optimized for Portuguese Market
 @use 'variables' as *;
 
-@media (max-width: $breakpoint-desktop) {
-  .how-grid {
-    grid-template-columns: repeat(2, 1fr);
+// ============================================
+// TABLET LARGE / SMALL DESKTOP (max-width: 1024px)
+// ============================================
+@media (max-width: $breakpoint-tablet-large) {
+  // Container adjustments
+  .hpi-container {
+    padding: 0 24px;
   }
 
-  .benefits-grid {
+  // How It Works
+  .hpi-how-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .hpi-how-item {
+    padding: 15px;
+
+    .hpi-how-number {
+      font-size: 28px;
+    }
+
+    img {
+      height: 60px;
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  // Benefits
+  .hpi-benefits-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
 
-  .footer-grid {
+  .hpi-benefit-item {
+    padding: 20px 0;
+
+    img {
+      height: 200px;
+      max-width: 300px;
+    }
+
+    .hpi-benefit-text {
+      h3 {
+        font-size: 26px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  // Footer
+  .hpi-footer-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: $breakpoint-tablet) {
-  // Hero Section
-  .hero-section {
-    height: auto;
-    padding: 30px 0;
+    gap: 30px;
   }
 
-  .hero-content {
+  // Savings Section
+  .hpi-savings-content {
     flex-direction: column;
     text-align: center;
     gap: 30px;
+  }
+
+  .hpi-savings-text {
+    h1 {
+      font-size: 40px;
+    }
+
+    .hpi-subtitle {
+      font-size: 22px;
+    }
+  }
+
+  .hpi-savings-image {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  // What-Is Section
+  .hpi-what-is-text {
+    h2 {
+      font-size: 40px;
+    }
+
+    .hpi-subtitle {
+      font-size: 22px;
+    }
+  }
+
+  // Promo Section
+  .hpi-promo-content {
+    flex-direction: column;
+    gap: 30px;
+
+    .hpi-diagonal-stripe {
+      display: none;
+    }
+  }
+
+  .hpi-promo-text {
+    text-align: center;
+    padding-right: 0;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    .hpi-subtitle {
+      font-size: 22px;
+    }
+  }
+
+  .hpi-promo-image {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  // CTA Section
+  .hpi-cta-content {
+    h1 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  // Plans Section
+  .hpi-plans-header {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+    padding: 20px 0;
+
+    h2 {
+      font-size: 40px;
+      text-align: center;
+    }
+
+    div.hpi-subscribe {
+      width: 100%;
+      height: auto;
+      justify-content: center;
+
+      div.hpi-subscribe-from {
+        margin-right: 0;
+
+        img.hpi-icon {
+          height: 50px;
+        }
+
+        span {
+          font-size: 26px;
+        }
+      }
+
+      div.hpi-blue-frame {
+        display: none;
+      }
+    }
+  }
+
+  .hpi-plans-wrapper {
+    padding: 60px 20px 20px;
+
+    .hpi-blue-frame-left,
+    .hpi-blue-frame-right {
+      width: 150px;
+      height: 200px;
+    }
+  }
+
+  .hpi-plan-card {
+    h3 {
+      font-size: 28px;
+    }
+
+    .hpi-plan-price {
+      font-size: 40px;
+    }
+
+    ul li {
+      font-size: 16px;
+    }
+  }
+
+  // FAQ Section
+  .hpi-faq-header {
+    .hpi-blue-frame {
+      display: none;
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  .hpi-faq-item {
+    h3 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+// ============================================
+// TABLET (max-width: 768px)
+// ============================================
+@media (max-width: $breakpoint-tablet) {
+  // Container adjustments
+  .hpi-container {
+    padding: 0 20px;
+  }
+
+  // Hero Section
+  .hpi-hero-section {
+    height: auto;
+    padding: 20px 0 30px;
+  }
+
+  .hpi-hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
     align-items: center;
     height: auto;
   }
 
-  .hero-left {
+  .hpi-hero-left {
     width: 100%;
     justify-content: center;
+    padding-bottom: 20px;
   }
 
-  .hero-middle {
-    position: relative;
-    left: 0;
-    top: 0;
-    transform: none;
-    width: 100%;
-    height: 200px;
-    margin: 0;
+  .hpi-hero-logo {
+    width: 60px;
+    height: 60px;
   }
 
-  .diagonal-stripe {
-    left: -20px;
-    width: 160px;
-    height: 400px;
-    top: -50px;
+  .hpi-hero-brand-text {
+    font-size: 28px;
   }
 
-  .hero-image-wrapper {
+  .hpi-hero-middle {
+    position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) skewX(-20deg);
-    width: 90%;
-    max-width: 500px;
-    height: 140px;
+    transform: translateX(-50%);
+    margin: 0;
+
+    .hpi-diagonal-stripe {
+      width: 100px;
+      height: 300px;
+    }
   }
 
-  .hero-right {
+  .hpi-hero-image-wrapper {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .hpi-hero-right {
     max-width: 100%;
     width: 100%;
     justify-content: center;
     text-align: center;
-  }
 
-  // Other Sections
-  .hero-black-content,
-  .what-is-content,
-  .never-content,
-  .promo-content {
-    flex-direction: column;
-  }
+    img {
+      width: 70px;
+    }
 
-  .hero-black-text h1 {
-    font-size: 36px;
-  }
-
-  .never-text .never-out {
-    font-size: 48px;
-  }
-
-  .how-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .plans-wrapper {
-    flex-direction: column;
-  }
-
-  .plans-grid {
-    flex-direction: column;
-  }
-
-  .benefit-item {
-    flex-direction: column;
-
-    &.reverse {
-      flex-direction: column;
+    span {
+      font-size: 24px;
     }
   }
 
-  .footer-grid {
+  // Savings Section
+  .hpi-savings-text {
+    h1 {
+      font-size: 36px;
+    }
+
+    .hpi-subtitle {
+      font-size: 20px;
+    }
+  }
+
+  // What-Is Section
+  .hpi-what-is-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .hpi-what-is-text {
+    text-align: center;
+
+    h2 {
+      font-size: 36px;
+    }
+
+    .hpi-subtitle {
+      font-size: 20px;
+    }
+  }
+
+  .hpi-what-is-image {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  // Promo Section
+  .hpi-promo-text {
+    h2 {
+      font-size: 36px;
+    }
+
+    .hpi-subtitle {
+      font-size: 20px;
+    }
+  }
+
+  // How It Works
+  .hpi-how-header {
+    h2 {
+      font-size: 36px;
+    }
+  }
+
+  .hpi-how-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hpi-how-item {
+    text-align: center;
+    padding: 20px;
+
+    .hpi-how-number {
+      text-align: center;
+      font-size: 26px;
+    }
+
+    img {
+      height: 60px;
+      margin: 0 auto 15px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  // CTA Section
+  .hpi-cta-content {
+    padding: 40px 0;
+
+    h1 {
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  // Plans Section
+  .hpi-plans-header {
+    h2 {
+      font-size: 36px;
+    }
+
+    div.hpi-subscribe {
+      div.hpi-subscribe-from {
+        padding: 15px 12px;
+
+        img.hpi-icon {
+          height: 44px;
+          margin-right: 15px;
+        }
+
+        span {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  .hpi-plans-wrapper {
+    padding: 40px 15px 15px;
+
+    .hpi-blue-frame-left {
+      width: 100px;
+      height: 150px;
+    }
+
+    .hpi-blue-frame-right {
+      width: 100px;
+      height: 250px;
+    }
+  }
+
+  .hpi-plans-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hpi-plan-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+
+    h3 {
+      font-size: 26px;
+    }
+
+    .hpi-plan-price {
+      font-size: 36px;
+    }
+  }
+
+  // Benefits
+  .hpi-benefits-headline-section {
+    h2 {
+      font-size: 36px;
+    }
+  }
+
+  .hpi-benefit-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+
+    &.hpi-reverse {
+      flex-direction: column;
+    }
+
+    img {
+      height: 180px;
+      margin: 0 auto;
+    }
+
+    .hpi-benefit-text {
+      h3 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  // FAQ
+  .hpi-faq-header {
+    h2 {
+      font-size: 36px;
+    }
+  }
+
+  .hpi-faq-item {
+    h3 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  // Footer
+  .hpi-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hpi-footer-column {
+    h4 {
+      font-size: 20px;
+    }
+
+    p, a {
+      font-size: 16px;
+    }
+  }
+
+  // Buttons
+  .hpi-btn-primary,
+  .hpi-btn-black {
+    font-size: 20px;
+    padding: 12px 24px;
+    width: 100%;
+    max-width: 300px;
   }
 }
 
+// ============================================
+// MOBILE (max-width: 480px)
+// ============================================
 @media (max-width: $breakpoint-mobile) {
-  .hero-black-text h1 {
-    font-size: 28px;
+  // Container adjustments
+  .hpi-container {
+    padding: 0 16px;
   }
 
-  .what-is-text h2,
-  .how-header h2,
-  .plans-header h2,
-  .benefits-headline-section h2,
-  .faq-header h2 {
-    font-size: 28px;
+  // Hero Section
+  .hpi-hero-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
   }
 
-  .never-text .never-out {
-    font-size: 36px;
+  .hpi-hero-brand-text {
+    font-size: 22px;
+  }
+
+  .hpi-hero-right {
+    img {
+      width: 60px;
+    }
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .hpi-hero-middle {
+    .hpi-diagonal-stripe {
+      width: 60px;
+      height: 250px;
+    }
+  }
+
+  // Typography scaling for mobile
+  .hpi-savings-text {
+    h1 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .hpi-subtitle {
+      font-size: 18px;
+    }
+  }
+
+  .hpi-what-is-text {
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .hpi-subtitle {
+      font-size: 18px;
+    }
+  }
+
+  .hpi-promo-text {
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .hpi-subtitle {
+      font-size: 18px;
+    }
+  }
+
+  .hpi-how-header {
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  }
+
+  .hpi-how-item {
+    padding: 15px;
+
+    .hpi-how-number {
+      font-size: 24px;
+    }
+
+    img {
+      height: 50px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .hpi-cta-content {
+    padding: 30px 0;
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .hpi-plans-header {
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    div.hpi-subscribe {
+      div.hpi-subscribe-from {
+        flex-direction: column;
+        padding: 12px 10px;
+        gap: 8px;
+
+        img.hpi-icon {
+          height: 36px;
+          margin-right: 0;
+          margin-bottom: 8px;
+        }
+
+        span {
+          font-size: 18px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .hpi-plans-wrapper {
+    padding: 30px 10px 10px;
+
+    .hpi-blue-frame-left,
+    .hpi-blue-frame-right {
+      display: none;
+    }
+  }
+
+  .hpi-plan-card {
+    padding: 20px 15px;
+
+    h3 {
+      font-size: 22px;
+    }
+
+    .hpi-plan-price {
+      font-size: 32px;
+    }
+
+    ul li {
+      font-size: 14px;
+    }
+  }
+
+  .hpi-benefits-headline-section {
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  }
+
+  .hpi-benefit-item {
+    img {
+      height: 140px;
+    }
+
+    .hpi-benefit-text {
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .hpi-faq-header {
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  }
+
+  .hpi-faq-item {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .hpi-footer-column {
+    h4 {
+      font-size: 18px;
+    }
+
+    p, a {
+      font-size: 14px;
+    }
+  }
+
+  // Buttons - Touch-friendly sizing
+  .hpi-btn-primary,
+  .hpi-btn-black {
+    font-size: 18px;
+    padding: 14px 20px;
+    width: 100%;
+    min-height: 48px; // Touch-friendly
+  }
+}
+
+// ============================================
+// SMALL MOBILE (max-width: 360px)
+// ============================================
+@media (max-width: $breakpoint-mobile-small) {
+  .hpi-container {
+    padding: 0 12px;
+  }
+
+  .hpi-hero-brand-text {
+    font-size: 18px;
+  }
+
+  .hpi-hero-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  h1, h2 {
+    font-size: 24px !important;
+    line-height: 1.2;
+  }
+
+  .hpi-plans-header div.hpi-subscribe div.hpi-subscribe-from {
+    span {
+      font-size: 16px;
+    }
+
+    img.hpi-icon {
+      height: 32px;
+    }
+  }
+
+  .hpi-how-item {
+    padding: 12px;
+
+    h3 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+}
+
+// ============================================
+// EMBEDDED/IFRAME OPTIMIZATIONS
+// ============================================
+// For pages embedded in partner websites
+@media (max-width: $breakpoint-tablet) {
+  // Ensure content doesn't break in iframes
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  // Prevent horizontal scroll
+  body {
+    overflow-x: hidden;
+  }
+
+  .hpi-container {
+    overflow-x: hidden;
+  }
+
+  // Make sure sections stack properly
+  section {
+    overflow-x: hidden;
+  }
+}
+
+// ============================================
+// PRINT STYLES (bonus for marketing materials)
+// ============================================
+@media print {
+  .hpi-hero-middle,
+  .hpi-blue-frame,
+  .hpi-blue-frame-left,
+  .hpi-blue-frame-right {
+    display: none !important;
+  }
+
+  .hpi-container {
+    max-width: 100%;
+  }
+
+  .hpi-btn-primary,
+  .hpi-btn-black {
+    border: 2px solid $black;
   }
 }

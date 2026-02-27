@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worten Demo - HP Instant Ink Integration Test</title>
+<style>
+/* Simulação do ambiente Worten */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: #f6f6f6;
+  color: #333;
+}
+
+/* Header típico de e-commerce */
+.worten-header {
+  background-color: #fff;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.worten-header-content {
+  max-width: 1312px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.worten-logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #e30613;
+  text-decoration: none;
+}
+
+.worten-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.worten-nav a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.worten-nav a:hover {
+  color: #e30613;
+}
+
+/* Breadcrumb */
+.worten-breadcrumb {
+  background-color: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.worten-breadcrumb-content {
+  max-width: 1312px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 13px;
+  color: #666;
+}
+
+.worten-breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+
+.worten-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* Main content container */
+.worten-main {
+  max-width: 1312px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f6f6f6;
+}
+
+.worten-page-title {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.worten-page-title h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.worten-page-title p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* HP Instant Ink integration area */
+.worten-hp-integration {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Footer típico */
+.worten-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+}
+
+.worten-footer-content {
+  max-width: 1312px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.worten-footer h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.worten-footer ul {
+  list-style: none;
+}
+
+.worten-footer li {
+  margin-bottom: 8px;
+}
+
+.worten-footer a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.worten-footer a:hover {
+  color: #fff;
+}
+
+.worten-footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #555;
+  font-size: 12px;
+  color: #999;
+}
+
+/* Info box para debug */
+.debug-info {
+  background-color: #fff3cd;
+  border: 2px solid #ffc107;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.debug-info h3 {
+  color: #856404;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.debug-info code {
+  background-color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  color: #e83e8c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .worten-nav {
+    display: none;
+  }
+  
+  .worten-main {
+    padding: 10px;
+  }
+  
+  .worten-page-title {
+    padding: 15px;
+  }
+  
+  .worten-footer-content {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Header Worten -->
+<header class="worten-header">
+  <div class="worten-header-content">
+    <a href="#" class="worten-logo">WORTEN</a>
+    <nav class="worten-nav">
+      <a href="#">Promoções</a>
+      <a href="#">Informática</a>
+      <a href="#">TV e Som</a>
+      <a href="#">Electrodomésticos</a>
+      <a href="#">Gaming</a>
+      <a href="#">Telecomunicações</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="worten-breadcrumb">
+  <div class="worten-breadcrumb-content">
+    <a href="#">Início</a> › <a href="#">Informática</a> › <a href="#">Impressoras</a> › <strong>HP Instant Ink</strong>
+  </div>
+</div>
+
+<!-- Main Content -->
+<main class="worten-main">
+  
+  <!-- Debug Info -->
+  <div class="debug-info">
+    <h3>🧪 Demo Environment - Worten Integration Test</h3>
+    <p><strong>Propósito:</strong> Esta página simula o ambiente Worten para testar o alinhamento do HP Instant Ink.</p>
+    <p><strong>Container Worten:</strong> <code>max-width: 1312px</code> (largura real Worten)</p>
+    <p><strong>Background:</strong> <code>#f6f6f6</code> (cor padrão Worten)</p>
+    <p><strong>HP Integration:</strong> Incluído abaixo dentro de <code>.worten-hp-integration</code></p>
+    <p style="margin-top: 10px; font-size: 12px; color: #666;">
+      Nota: O conteúdo HP está com wrapper <code>.hpi-hp-instant-ink</code> e containers internos <code>.hpi-container</code> com <code>max-width: 1200px</code>
+    </p>
+  </div>
+
+  <!-- Page Title -->
+  <div class="worten-page-title">
+    <h1>HP Instant Ink - Subscrição de Tinteiros</h1>
+    <p>Poupe até 70% em tinteiros com a subscrição HP Instant Ink. Tinta entregue automaticamente à sua porta.</p>
+  </div>
+
+  <!-- HP Instant Ink Integration Area -->
+  <div class="worten-hp-integration">
+    <!-- Debug Controls -->
+    <div style="background: #fff3cd; border: 1px solid #ffc107; padding: 10px; margin-bottom: 15px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between;">
+      <div>
+        <strong style="color: #856404;">🔄 Cache Control:</strong>
+        <span id="last-reload" style="margin-left: 10px; font-size: 13px; color: #666;"></span>
+      </div>
+      <button onclick="forceReloadIframe()" style="background: #e30613; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 500;">
+        🔃 Force Reload Iframe
+      </button>
+    </div>
+    
+    <!-- INÍCIO DO CONTEÚDO HP INSTANT INK -->
+    <iframe 
+      src="./worten-dist/hp-instant-ink-worten.html" 
+      style="width: 100%; border: none; display: block; overflow: hidden;"
+      id="hp-iframe"
+      scrolling="no"
+    ></iframe>
+    <!-- FIM DO CONTEÚDO HP INSTANT INK -->
+  </div>
+
+  <!-- Additional Worten Content -->
+  <div class="worten-page-title">
+    <h2 style="font-size: 20px;">Impressoras Compatíveis</h2>
+    <p>Descubra as impressoras HP compatíveis com o serviço Instant Ink disponíveis na Worten.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+      <div style="background: #f8f8f8; padding: 15px; text-align: center; border-radius: 4px;">
+        <div style="background: #e0e0e0; height: 120px; margin-bottom: 10px; border-radius: 4px;"></div>
+        <strong style="font-size: 14px;">HP Printer Model 1</strong>
+        <p style="font-size: 12px; color: #666; margin: 5px 0;">Com Instant Ink incluído</p>
+        <p style="font-size: 16px; font-weight: bold; color: #e30613;">€129.99</p>
+      </div>
+      <div style="background: #f8f8f8; padding: 15px; text-align: center; border-radius: 4px;">
+        <div style="background: #e0e0e0; height: 120px; margin-bottom: 10px; border-radius: 4px;"></div>
+        <strong style="font-size: 14px;">HP Printer Model 2</strong>
+        <p style="font-size: 12px; color: #666; margin: 5px 0;">Com Instant Ink incluído</p>
+        <p style="font-size: 16px; font-weight: bold; color: #e30613;">€199.99</p>
+      </div>
+      <div style="background: #f8f8f8; padding: 15px; text-align: center; border-radius: 4px;">
+        <div style="background: #e0e0e0; height: 120px; margin-bottom: 10px; border-radius: 4px;"></div>
+        <strong style="font-size: 14px;">HP Printer Model 3</strong>
+        <p style="font-size: 12px; color: #666; margin: 5px 0;">Com Instant Ink incluído</p>
+        <p style="font-size: 16px; font-weight: bold; color: #e30613;">€299.99</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer Worten -->
+<footer class="worten-footer">
+  <div class="worten-footer-content">
+    <div>
+      <h4>Institucional</h4>
+      <ul>
+        <li><a href="#">Sobre a Worten</a></li>
+        <li><a href="#">Sustentabilidade</a></li>
+        <li><a href="#">Carreiras</a></li>
+        <li><a href="#">Imprensa</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Apoio ao Cliente</h4>
+      <ul>
+        <li><a href="#">Contactos</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Devoluções</a></li>
+        <li><a href="#">Garantias</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Informações</h4>
+      <ul>
+        <li><a href="#">Termos e Condições</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Livro de Reclamações</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Pagamentos</h4>
+      <ul>
+        <li><a href="#">Métodos de Pagamento</a></li>
+        <li><a href="#">MBWay</a></li>
+        <li><a href="#">Cartão Worten</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="worten-footer-bottom">
+    © 2026 Worten - Equipamento para o Lar, S.A. Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+// Cache-busting: Adiciona timestamp ao iframe src para forçar reload
+function addCacheBusting() {
+  const iframe = document.getElementById('hp-iframe');
+  if (!iframe) return;
+  
+  const baseSrc = './worten-dist/hp-instant-ink-worten.html';
+  const timestamp = new Date().getTime();
+  iframe.src = `${baseSrc}?t=${timestamp}`;
+  
+  // Atualiza display de última atualização
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString('pt-PT');
+  document.getElementById('last-reload').textContent = `Última atualização: ${timeStr}`;
+  
+  console.log('🔄 Iframe reloaded with cache-busting:', timestamp);
+  
+  // Garante que resize será executado após load
+  iframe.onload = function() {
+    console.log('✅ Iframe onload event fired');
+    setTimeout(resizeIframe, 50);
+    setTimeout(resizeIframe, 200);
+    setTimeout(resizeIframe, 500);
+  };
+}
+
+// Função para botão de force reload
+function forceReloadIframe() {
+  console.log('🔃 Force reload triggered by user');
+  addCacheBusting();
+}
+
+// Auto-resize iframe para evitar scrollbars - Método melhorado
+function resizeIframe() {
+  const iframe = document.getElementById('hp-iframe');
+  if (!iframe) {
+    console.log('⚠️ Iframe element not found');
+    return;
+  }
+  
+  try {
+    // Tenta diferentes métodos de calcular altura
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    
+    if (iframeDoc && iframeDoc.body) {
+      const body = iframeDoc.body;
+      const html = iframeDoc.documentElement;
+      
+      // Calcula a altura máxima entre diferentes propriedades
+      const height = Math.max(
+        body.scrollHeight || 0,
+        body.offsetHeight || 0,
+        html.clientHeight || 0,
+        html.scrollHeight || 0,
+        html.offsetHeight || 0
+      );
+      
+      if (height > 0) {
+        // Adiciona pequeno buffer para evitar cortes
+        iframe.style.height = (height + 20) + 'px';
+        console.log('✓ Iframe resized to:', height + 20 + 'px');
+      } else {
+        console.log('⚠️ Could not calculate iframe height, using fallback');
+        iframe.style.height = '3500px';
+      }
+      
+      // Observa mudanças no conteúdo do iframe
+      try {
+        const observer = new MutationObserver(() => {
+          const newHeight = Math.max(
+            body.scrollHeight || 0,
+            body.offsetHeight || 0,
+            html.scrollHeight || 0,
+            html.offsetHeight || 0
+          );
+          if (newHeight > 0) {
+            iframe.style.height = (newHeight + 20) + 'px';
+          }
+        });
+        observer.observe(body, {
+          childList: true,
+          subtree: true,
+          attributes: true
+        });
+      } catch (observerError) {
+        console.log('⚠️ MutationObserver failed:', observerError.message);
+      }
+    } else {
+      console.log('⚠️ Iframe document not ready');
+      iframe.style.height = '3500px';
+    }
+  } catch (e) {
+    console.error('❌ Erro ao redimensionar iframe:', e.message);
+    // Fallback: define altura mínima
+    iframe.style.height = '3500px';
+  }
+}
+
+// Aplica cache-busting ao carregar a página
+window.addEventListener('DOMContentLoaded', () => {
+  console.log('📄 DOMContentLoaded - initializing');
+  addCacheBusting();
+});
+
+// Tenta também no load da página pai
+window.addEventListener('load', () => {
+  console.log('📄 Window load event');
+  setTimeout(resizeIframe, 100);
+  setTimeout(resizeIframe, 500);
+  setTimeout(resizeIframe, 1000);
+});
+
+// Redimensiona se a janela mudar de tamanho
+window.addEventListener('resize', resizeIframe);
+
+// Backup: tenta resize periodicamente nos primeiros segundos
+let resizeAttempts = 0;
+const resizeInterval = setInterval(() => {
+  resizeIframe();
+  resizeAttempts++;
+  if (resizeAttempts > 10) {
+    clearInterval(resizeInterval);
+    console.log('✅ Resize interval stopped after 10 attempts');
+  }
+}, 500);
+
+// Debug info na consola
+console.log('%c🏪 Worten Demo Environment', 'font-size: 16px; font-weight: bold; color: #e30613');
+console.log('Container max-width: 1312px (real Worten width)');
+console.log('Background: #f6f6f6');
+console.log('HP Instant Ink loaded via iframe from: ./worten-dist/hp-instant-ink-worten.html');
+console.log('HP Container (.hpi-container) max-width: 1312px');
+</script>
+
+</body>
+</html>

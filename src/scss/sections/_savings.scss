@@ -1,17 +1,17 @@
 // Hero Black Section
 @use '../base/variables' as *;
 
-.savings-section {
+.hpi-savings-section {
   background-color: $white;
   position: relative;
   color: $black;
 }
 
-.savings-content {
+.hpi-savings-content {
   display: flex;
 }
 
-.savings-text {
+.hpi-savings-text {
   flex: 1;
 
   h1 {
@@ -21,7 +21,7 @@
     margin-bottom: 10px;
   }
 
-  .subtitle {
+  .hpi-subtitle {
     font-size: 25px;
     line-height: 1.2;
     margin-bottom: 30px;
@@ -29,6 +29,6 @@
   }
 }
 
-.savings-image {
+.hpi-savings-image {
   flex: 1;
 }

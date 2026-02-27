@@ -1,12 +1,12 @@
 // How It Works Section
 @use '../base/variables' as *;
 
-.how-section {
+.hpi-how-section {
   padding: 20px 0 0;
   background-color: $white;
 }
 
-.how-header {
+.hpi-how-header {
   text-align: center;
   margin-bottom: 40px;
 
@@ -18,18 +18,18 @@
   }
 }
 
-.how-grid {
+.hpi-how-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 
-.how-item {
+.hpi-how-item {
   text-align: left;
   padding: 10px 20px;
   background-color: $bg-gray;
 
-  .how-number {
+  .hpi-how-number {
     text-align: left;
     font-size: 32px;
     font-weight: 700;

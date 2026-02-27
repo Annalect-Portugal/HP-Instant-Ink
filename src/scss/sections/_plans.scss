@@ -1,11 +1,11 @@
 // Plans Section
 @use '../base/variables' as *;
 
-.plans-section {
+.hpi-plans-section {
   background-color: $white;
 }
 
-.plans-header {
+.hpi-plans-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,12 +17,12 @@
     line-height: 1.1;
     font-weight: 700;
   }
-  div.subscribe{
+  div.hpi-subscribe{
     display: flex;
     position: relative;
     align-items: center;
     height: 170px;
-    div.subscribe-from {
+    div.hpi-subscribe-from {
       background-color: $white;
       z-index: 3;
       display: flex;
@@ -33,7 +33,7 @@
       border: 4px solid $black;
       padding: 20px 15px;
       border-radius: 8px;
-      img.icon {
+      img.hpi-icon {
         width: auto;
         height: 64px;
         margin-right: 20px;
@@ -45,7 +45,7 @@
         font-weight: 600;
       }
     }
-    div.blue-frame {
+    div.hpi-blue-frame {
       position: absolute;
       right: 0;
       top: 0;
@@ -58,10 +58,10 @@
   }
 }
 
-.plans-wrapper {
+.hpi-plans-wrapper {
   padding: 80px 20px 20px;
   position:relative;
-  .blue-frame-left {
+  .hpi-blue-frame-left {
     position: absolute;
     left: 0;
     top: 0;
@@ -71,7 +71,7 @@
     clip-path: polygon(0% 0, 100% 0, 60% 100%, 0% 100%);
     z-index: 2;
   }
-  .blue-frame-right {
+  .hpi-blue-frame-right {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -83,7 +83,7 @@
   }
 }
 
-.plans-grid {
+.hpi-plans-grid {
   display: flex;
   gap: 0;
   justify-content: center;
@@ -93,7 +93,7 @@
   z-index: 5;
 }
 
-.plans-note {
+.hpi-plans-note {
   text-align: center;
   margin-top: 20px;
   
@@ -103,7 +103,7 @@
   }
 }
 
-.plan-card {
+.hpi-plan-card {
   z-index: 5;
   height: 300px;
   width: 20%;
@@ -116,7 +116,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  &.enlarged {
+  &.hpi-enlarged {
     margin-top:-35px;
     height: 425px;
     border-left: 1px solid;
@@ -127,14 +127,17 @@
   &:nth-of-type(2),
   &:nth-of-type(4) { border-right: none; }
 
-  .recommended-plan {
+  .hpi-recommended-plan {
     height: 80px;
-    color: $black; 
-    padding: 15px 20px;
+    color: $black;
+    padding: 15px 20px 0;
     font-size: 18px; 
     font-weight: 600;
     white-space: nowrap;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   h3 {
@@ -147,20 +150,20 @@
     border-bottom: 1px solid $black;
   }
 
-  .plan-pages {
+  .hpi-plan-pages {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 15px;
     display: flex;
   }
 
-  .plan-price {
+  .hpi-plan-price {
     display: flex;
     font-size: 48px;
     font-weight: 700;
   }
 
-  .plan-period {
+  .hpi-plan-period {
     display: flex;
     font-size: 18px;
     font-weight: 400;

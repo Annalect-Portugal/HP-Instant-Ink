@@ -1,25 +1,25 @@
 // What Is Section
 @use '../base/variables' as *;
 
-.what-is-section {
+.hpi-what-is-section {
   background-color: $white;
   padding: 30px 0;
 }
 
-.what-is-content {
+.hpi-what-is-content {
   display: flex;
   gap: 60px;
   align-items: center;
 }
 
-.what-is-col-1 {
+.hpi-what-is-col-1 {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.what-is-text {
+.hpi-what-is-text {
   h2 {
     font-size: 50px;
     font-weight: 700;
@@ -27,7 +27,7 @@
     margin-bottom: 10px;
   }
 
-  .subtitle {
+  .hpi-subtitle {
     font-size: 25px;
     line-height: 1.2;
     margin-bottom: 0;
@@ -35,25 +35,25 @@
   }
 }
 
-.what-is-image {
+.hpi-what-is-image {
   img {
     width: 100%;
     height: auto;
   }
 }
 
-.what-is-col-2 {
+.hpi-what-is-col-2 {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.what-is-video-wrapper {
+.hpi-what-is-video-wrapper {
   width: 100%;
   max-width: 600px;
   
-  .what-is-video-content {
+  .hpi-what-is-video-content {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;

@@ -1,7 +1,7 @@
 // Benefits Section
 @use '../base/variables' as *;
 
-.benefits-headline-section {
+.hpi-benefits-headline-section {
   padding: 0px 0 30px;
   text-align: center;
 
@@ -11,21 +11,21 @@
   }
 }
 
-.benefits-section {
+.hpi-benefits-section {
   margin: 0;
 }
 
-.benefits-grid {
+.hpi-benefits-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
 
-.benefit-item {
+.hpi-benefit-item {
   background-color: $bg-gray;
   display: flex;
 
-  .benefit-text {
+  .hpi-benefit-text {
     padding: 20px 0 0 20px;
     margin-right:-25px;
     flex: 1;

@@ -7,25 +7,84 @@
   box-sizing: border-box;
 }
 
+html {
+  // Smooth scrolling for anchor links
+  scroll-behavior: smooth;
+  // Prevent text size adjustment on orientation change
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 body {
   font-family: $font-primary;
   line-height: 1.6;
   color: #1a1a1a;
   background-color: #fff;
   font-weight: 400;
+  // Prevent horizontal scroll
+  overflow-x: hidden;
+  width: 100%;
+  // Better font rendering on mobile
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
   max-width: 100%;
   height: auto;
   display: block;
+  // Prevent image dragging on mobile
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  // Better tap highlighting on mobile
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+button,
+.btn-primary,
+.btn-black {
+  // Remove default button styling
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  // Better tap target size (min 44x44 for iOS)
+  min-height: 44px;
+  // Better tap highlighting
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  // Prevent text selection on buttons
+  user-select: none;
+  -webkit-user-select: none;
+  // Better touch feedback
+  touch-action: manipulation;
 }
 
 ul {
   list-style: none;
+}
+
+// Prevent zoom on input focus (iOS)
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+// Better iframe embedding support
+iframe {
+  border: none;
+  max-width: 100%;
+}
+
+// Prevent layout shift from scrollbar
+html {
+  overflow-y: scroll;
 }

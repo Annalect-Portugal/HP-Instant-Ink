@@ -1,5 +1,9 @@
 node_modules/
 dist/
+dist-standalone/
+worten-dist/
+.worten-temp/
+packages/
 .parcel-cache/
 .DS_Store
 *.log

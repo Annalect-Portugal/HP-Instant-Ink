@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparação Lado-a-Lado - Worten vs Dev</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background: #2c2c2c;
+      color: white;
+      padding: 20px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .header h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .header p {
+      color: #aaa;
+      font-size: 14px;
+    }
+    
+    .comparison-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 2400px;
+      margin: 0 auto;
+    }
+    
+    .iframe-wrapper {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    
+    .iframe-header {
+      background: #1a1a1a;
+      padding: 15px;
+      border-bottom: 3px solid #024ad8;
+    }
+    
+    .iframe-header h2 {
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: #024ad8;
+    }
+    
+    .iframe-header .url {
+      font-size: 12px;
+      color: #888;
+      font-family: monospace;
+    }
+    
+    .iframe-header .info {
+      font-size: 11px;
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      display: block;
+      background: white;
+    }
+    
+    .controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.9);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    
+    .controls button {
+      background: #024ad8;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 5px;
+      transition: background 0.2s;
+    }
+    
+    .controls button:hover {
+      background: #0239a8;
+    }
+    
+    .controls button.secondary {
+      background: #e30613;
+    }
+    
+    .controls button.secondary:hover {
+      background: #b30510;
+    }
+    
+    .indicators {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 2400px;
+      margin: 20px auto 0;
+    }
+    
+    .indicator {
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 8px;
+      border: 2px solid #333;
+    }
+    
+    .indicator h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #024ad8;
+    }
+    
+    .indicator-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 12px;
+      border-bottom: 1px solid #333;
+    }
+    
+    .indicator-item:last-child {
+      border-bottom: none;
+    }
+    
+    .indicator-item .label {
+      color: #999;
+    }
+    
+    .indicator-item .value {
+      color: #fff;
+      font-family: monospace;
+    }
+    
+    .match { color: #4caf50 !important; }
+    .diff { color: #ff9800 !important; }
+    
+    @media (max-width: 1400px) {
+      .comparison-container {
+        grid-template-columns: 1fr;
+      }
+      .indicators {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🔍 Comparação Visual: Worten vs Dev</h1>
+    <p>Compare as duas versões lado-a-lado para identificar diferenças</p>
+  </div>
+  
+  <div class="comparison-container">
+    <!-- Worten Build -->
+    <div class="iframe-wrapper">
+      <div class="iframe-header">
+        <h2>🏗️ WORTEN BUILD</h2>
+        <div class="url">http://localhost:8080/worten-dist/hp-instant-ink-worten.html</div>
+        <div class="info">✓ Ficheiro gerado | Container: 1312px | BG: #f6f6f6</div>
+      </div>
+      <iframe id="worten-iframe" src="http://localhost:8080/worten-dist/hp-instant-ink-worten.html"></iframe>
+    </div>
+    
+    <!-- Dev Build -->
+    <div class="iframe-wrapper">
+      <div class="iframe-header">
+        <h2>💻 DEV (Parcel)</h2>
+        <div class="url">http://localhost:1234/</div>
+        <div class="info">⚡ Live reload | Container: 1200px | BG: #ffffff</div>
+      </div>
+      <iframe id="dev-iframe" src="http://localhost:1234/"></iframe>
+    </div>
+  </div>
+  
+  <div class="indicators">
+    <div class="indicator">
+      <h3>📊 Especificações Worten</h3>
+      <div class="indicator-item">
+        <span class="label">Max Width:</span>
+        <span class="value">1312px</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Background:</span>
+        <span class="value">#f6f6f6</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Prefix:</span>
+        <span class="value">.hpi-</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Z-Index Max:</span>
+        <span class="value">1</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Size Limit:</span>
+        <span class="value">200,000 chars</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Current Size:</span>
+        <span class="value match">~35,440 chars (17.7%)</span>
+      </div>
+    </div>
+    
+    <div class="indicator">
+      <h3>📊 Especificações Dev</h3>
+      <div class="indicator-item">
+        <span class="label">Max Width:</span>
+        <span class="value diff">1200px</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Background:</span>
+        <span class="value diff">#ffffff</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Prefix:</span>
+        <span class="value">.hpi-</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Z-Index:</span>
+        <span class="value diff">Sem limite</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Build:</span>
+        <span class="value">Parcel (live)</span>
+      </div>
+      <div class="indicator-item">
+        <span class="label">Hot Reload:</span>
+        <span class="value match">✓ Ativo</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button onclick="reloadBoth()">🔄 Reload Both</button>
+    <button onclick="reloadWorten()">🔄 Reload Worten</button>
+    <button onclick="reloadDev()">🔄 Reload Dev</button>
+    <button class="secondary" onclick="syncScroll()">📜 Sync Scroll</button>
+  </div>
+  
+  <script>
+    const wortenIframe = document.getElementById('worten-iframe');
+    const devIframe = document.getElementById('dev-iframe');
+    let syncing = false;
+    
+    function reloadBoth() {
+      console.log('🔄 Reloading both iframes...');
+      const timestampWorten = new Date().getTime();
+      const timestampDev = new Date().getTime() + 1;
+      wortenIframe.src = `http://localhost:8080/worten-dist/hp-instant-ink-worten.html?t=${timestampWorten}`;
+      devIframe.src = `http://localhost:1234/?t=${timestampDev}`;
+    }
+    
+    function reloadWorten() {
+      console.log('🔄 Reloading Worten iframe...');
+      const timestamp = new Date().getTime();
+      wortenIframe.src = `http://localhost:8080/worten-dist/hp-instant-ink-worten.html?t=${timestamp}`;
+    }
+    
+    function reloadDev() {
+      console.log('🔄 Reloading Dev iframe...');
+      const timestamp = new Date().getTime();
+      devIframe.src = `http://localhost:1234/?t=${timestamp}`;
+    }
+    
+    function syncScroll() {
+      if (syncing) {
+        syncing = false;
+        console.log('📜 Scroll sync disabled');
+        return;
+      }
+      
+      syncing = true;
+      console.log('📜 Scroll sync enabled');
+      
+      try {
+        const wortenDoc = wortenIframe.contentWindow;
+        const devDoc = devIframe.contentWindow;
+        
+        wortenDoc.addEventListener('scroll', () => {
+          if (syncing) {
+            devDoc.scrollTo(0, wortenDoc.scrollY);
+          }
+        });
+        
+        devDoc.addEventListener('scroll', () => {
+          if (syncing) {
+            wortenDoc.scrollTo(0, devDoc.scrollY);
+          }
+        });
+      } catch (e) {
+        console.error('❌ Cannot sync scroll (CORS):', e.message);
+        alert('Cannot sync scroll due to CORS policy. Both pages must be on same origin.');
+        syncing = false;
+      }
+    }
+    
+    // Console info
+    console.log('%c🔍 Visual Comparison Tool', 'font-size: 16px; font-weight: bold; color: #024ad8');
+    console.log('═'.repeat(60));
+    console.log('Worten:', 'http://localhost:8080/worten-dist/hp-instant-ink-worten.html');
+    console.log('Dev:   ', 'http://localhost:1234/');
+    console.log('═'.repeat(60));
+    console.log('Controls:');
+    console.log('• Reload Both - Refresh both iframes');
+    console.log('• Reload Worten - Refresh only Worten');
+    console.log('• Reload Dev - Refresh only Dev');
+    console.log('• Sync Scroll - Synchronize scrolling (may fail due to CORS)');
+    console.log('═'.repeat(60));
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.key === 'r') {
+        e.preventDefault();
+        reloadBoth();
+      }
+    });
+    
+    console.log('💡 Tip: Press Ctrl+R to reload both iframes');
+    console.log('💡 Tip: Open DevTools in each iframe to inspect elements');
+  </script>
+</body>
+</html>
